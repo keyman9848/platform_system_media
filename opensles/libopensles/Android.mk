@@ -9,6 +9,7 @@ LOCAL_SRC_FILES :=     \
 LOCAL_C_INCLUDES:= \
         system/media/opensles/include
 
+LOCAL_CFLAGS += -x c++
 LOCAL_CFLAGS += -fvisibility=hidden
 
 LOCAL_MODULE := libOpenSLESUT
@@ -35,6 +36,7 @@ LOCAL_CFLAGS += -DUSE_PROFILES=0 -UUSE_TRACE -UUSE_DEBUG -DNDEBUG -DUSE_LOG=SLAn
 #LOCAL_CFLAGS += -DSL_TRACE_DEFAULT=SL_TRACE_ALL
 
 # Reduce size of .so and hide internal global symbols
+LOCAL_CFLAGS += -x c++
 LOCAL_CFLAGS += -fvisibility=hidden -DSLAPIENTRY='__attribute__((visibility("default")))'
 
 LOCAL_SRC_FILES:=                     \
@@ -56,7 +58,7 @@ LOCAL_SRC_FILES:=                     \
         CEngine.c                     \
         COutputMix.c                  \
         IAndroidConfiguration.c       \
-        IAndroidEffect.c              \
+        IAndroidEffect.cpp            \
         IAndroidEffectCapabilities.c  \
         IAndroidEffectSend.c          \
         IBassBoost.c                  \
